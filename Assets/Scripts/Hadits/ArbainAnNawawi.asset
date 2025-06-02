@@ -1,0 +1,231 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bef43a98c87e6624a9d846a627acf95c, type: 3}
+  m_Name: ArbainAnNawawi
+  m_EditorClassIdentifier: 
+  hadithList:
+  - id: 1
+    judul: Amalan bergantung pada niat
+    arab: "\u0639\u064E\u0646\u0652 \u0623\u064E\u0645\u0650\u064A\u0631\u0650 \u0627\u0644\u0645\u064F\u0624\u0645\u0650\u0646\u064A\u0646\u064E
+      \u0623\u064E\u0628\u064A \u062D\u064E\u0641\u0652\u0635\u064D \u0639\u064F\u0645\u064E\u0631\u064E
+      \u0628\u0652\u0646\u0650 \u0627\u0644\u062E\u064E\u0637\u0651\u064E\u0627\u0628\u0650
+      \u0631\u064E\u0636\u064A\u064E \u0627\u0644\u0644\u0647\u064F \u0639\u0646\u0652\u0647\u064F
+      \u0642\u064E\u0627\u0644\u064E: \u0633\u064E\u0645\u0650\u0639\u0652\u062A\u064F
+      \u0631\u064E\u0633\u064F\u0648\u0644\u064E \u0627\u0644\u0644\u0647\u0650 \u0635\u064E\u0644\u0651\u064E\u0649
+      \u0627\u0644\u0644\u0647\u064F \u0639\u064E\u0644\u064E\u064A\u0652\u0647\u0650
+      \u0648\u064E\u0633\u064E\u0644\u0651\u064E\u0645\u064E \u064A\u064E\u0642\u064F\u0648\u0652\u0644\u064F:
+      (( \u0625\u0650\u0646\u0651\u064E\u0645\u064E\u0627 \u0627\u0644\u0623\u064E\u0639\u0652\u0645\u064E\u0627\u0644\u064F
+      \u0628\u0650\u0627\u0644\u0646\u0651\u0650\u064A\u0651\u064E\u0627\u062A\u0650\u060C
+      \u0648\u064E\u0625\u0650\u0646\u0651\u064E\u0645\u064E\u0627 \u0644\u0650\u0643\u064F\u0644\u0651\u0650
+      \u0627\u0645\u0652\u0631\u0650\u0626\u064D \u0645\u064E\u0627 \u0646\u064E\u0648\u064E\u0649\u060C
+      \u0641\u064E\u0645\u064E\u0646\u0652 \u0643\u064E\u0627\u0646\u064E\u062A\u0652
+      \u0647\u0650\u062C\u0652\u0631\u064E\u062A\u064F\u0647\u064F \u0625\u0650\u0644\u0650\u064E\u0649
+      \u0627\u0644\u0644\u0647\u0650 \u0648\u064E\u0631\u064E\u0633\u064F\u0648\u0652\u0644\u0650\u0647\u0650
+      \u0641\u064E\u0647\u0650\u062C\u0652\u0631\u064E\u062A\u064F\u0647\u064F \u0625\u0650\u0644\u064E\u0649
+      \u0627\u0644\u0644\u0647\u0650 \u0648\u064E\u0631\u064E\u0633\u064F\u0648\u0652\u0644\u0650\u0647\u0650\u060C
+      \u0648\u064E\u0645\u064E\u0646\u0652 \u0643\u064E\u0627\u0646\u064E\u062A\u0652
+      \u0647\u0650\u062C\u0652\u0631\u064E\u062A\u064F\u0647\u064F \u0644\u0650\u062F\u064F\u0646\u0652\u064A\u064E\u0627
+      \u064A\u064F\u0635\u0650\u064A\u0652\u0628\u064F\u0647\u064E\u0627\u060C \u0623\u064E\u0648\u0652
+      \u0627\u0645\u0652\u0631\u064E\u0623\u064E\u0629\u064D \u064A\u064E\u0646\u0652\u0643\u0650\u062D\u064F\u0647\u064E\u0627\u060C
+      \u0641\u064E\u0647\u0650\u062C\u0652\u0631\u064E\u062A\u064F\u0647\u064F \u0625\u0650\u0644\u064E\u0649
+      \u0645\u064E\u0627 \u0647\u064E\u0627\u062C\u064E\u0631\u064E \u0625\u0650\u0644\u064E\u064A\u0652\u0647\u0650
+      )). \u0631\u064E\u0648\u064E\u0627\u0647\u064F \u0625\u0650\u0645\u064E\u0627\u0645\u064E\u0627
+      \u0627\u0644\u0652\u0645\u064F\u062D\u064E\u062F\u0651\u0650\u062B\u0650\u064A\u0652\u0646\u064E
+      \u0623\u064E\u0628\u064F\u0648\u0652 \u0639\u064E\u0628\u0652\u062F\u0650 \u0627\u0644\u0644\u0647\u0650
+      \u0645\u064F\u062D\u064E\u0645\u0651\u064E\u062F\u064F \u0628\u0652\u0646\u064F
+      \u0625\u0650\u0633\u0652\u0645\u064E\u0627\u0639\u0650\u064A\u0652\u0644\u064E
+      \u0628\u0652\u0646\u0650 \u0625\u0650\u0628\u0652\u0631\u064E\u0627\u0647\u0650\u064A\u0652\u0645\u064E
+      \u0628\u0652\u0646\u0650 \u0627\u0644\u0652\u0645\u064F\u063A\u0650\u064A\u0652\u0631\u064E\u0629\u0650
+      \u0628\u0652\u0646\u0650 \u0628\u064E\u0631\u0652\u062F\u0650\u0632\u0652\u0628\u064E\u0647\u0652
+      \u0627\u0644\u0652\u0628\u064F\u062E\u064E\u0627\u0631\u0650\u064A\u0651\u064F\u060C
+      \u0648\u064E\u0623\u064E\u0628\u064F\u0648\u0652 \u0627\u0644\u0652\u062D\u064F\u0633\u064E\u064A\u0652\u0646\u0650
+      \u0645\u064F\u0633\u0652\u0644\u0650\u0645\u064F \u0628\u0652\u0646\u064F \u0627\u0644\u0652\u062D\u064E\u062C\u0651\u064E\u0627\u062C\u0650
+      \u0628\u0652\u0646\u0650 \u0645\u064F\u0633\u0652\u0644\u0650\u0645\u064D \u0627\u0644\u0652\u0642\u064F\u0634\u064E\u064A\u0652\u0631\u0650\u064A\u0651
+      \u0627\u0644\u0646\u0651\u064E\u064A\u0652\u0633\u064E\u0627\u0628\u064F\u0648\u0652\u0631\u0650\u064A\u0651\u060C
+      \u0641\u0650\u064A\u0652 \u0635\u064E\u062D\u0650\u064A\u0652\u062D\u064E\u064A\u0652\u0647\u0650\u0645\u064E\u0627
+      \u0627\u0644\u0644\u0651\u064E\u0630\u064E\u064A\u0652\u0646\u0650 \u0647\u064F\u0645\u064E\u0627
+      \u0623\u064E\u0635\u064E\u062D\u0651\u064F \u0627\u0644\u0652\u0643\u064F\u062A\u064F\u0628\u0650
+      \u0627\u0652\u0644\u0645\u064F\u0635\u064E\u0646\u0651\u064E\u0641\u064E\u0629\u0650."
+    indo: "Dari Amirul Mukminin Abu Hafsh Umar bin Al Khaththab adia berkata: \u2018Aku
+      mendengar Rasulullah shalallahu alaihi wasalam bersabda: \u201CAmalan-amalan
+      itu hanyalah tergantung pada niatnya. Dan setiap orang itu hanyalah akan dibalas
+      berdasarkan apa yang ia niatkan. Maka barang siapa yang hijrahnya kepada Allah
+      dan Rasul-Nya, maka hijrahnya keapda Allah dan Rasul-Nya. Namun barang siapa
+      yang hijrahnya untuk mendapatkan dunia atau seorang wanita yang ingin ia nikahi,
+      maka hijrahnya kepada apa yang ia niatkan tersebut.\u201D (Diriwayatkan oleh
+      dua Imamnya para ahli hadits, Abu Abdillah Muhammad bin Isma\u2019il bin Ibrahim
+      bin Al Mughirah bin Bardizbah Al Bukhari dan Abul Husain Muslim bin Al Hajjaj 
+      bin Muslim Al Qusyairi An Naisaburi dalam dua kitab shahih mereka, yang keduanya
+      merupakan kitab yang paling shahih diantara kitab-kitab yang ada.).\nDiriwayatkan
+      oleh al Bukhari (1) dan Muslim (1907)."
+    inggris: "Amirul Mukminin Abu Hafsh Umar bin Al Khaththab (may Allah be pleased
+      with him) reported: I heard the Messenger of Allah (peace and blessings of
+      Allah be upon him) say: \u201CThe deeds depend only on the intention. And each
+      person will only be rewarded according to what he intends. So whoever hijrahs
+      to Allah and His Messenger, then hijrahs to Allah and His Messenger. But whoever
+      hijrahs to gain the world or a woman he wants to marry, then hijrahs to what
+      he intends.\u201D (Narrated by the two Imams of the hadith scholars, Abu Abdillah
+      Muhammad ibn Isma'il ibn Ibrahim ibn Al Mughirah ibn Bardizbah Al Bukhari and
+      Abul Husayn Muslim ibn Al Hajjaj ibn Muslim Al Qusyairi An Naisaburi in their
+      two saheeh books, which are the most saheeh of all books.)\r\nNarrated by al
+      Bukhari (1) and Muslim (1907).\r\n\r\nTranslated with DeepL.com (free version)"
+    audioClips:
+    - {fileID: 8300000, guid: e3d15fb84d8d7704792f9a419aaada06, type: 3}
+  - id: 2
+    judul: Rukun Islam, Iman, dan Ihsan
+    arab: "\u0639\u064E\u0646\u0652 \u0639\u064F\u0645\u064E\u0631\u064E \u0631\u0636\u064A
+      \u0627\u0644\u0644\u0647 \u0639\u0646\u0647 \u0623\u064E\u064A\u0636\u0627\u064B
+      \u0642\u064E\u0627\u0644\u064E: \u0628\u064E\u064A\u0652\u0646\u064E\u0645\u064E\u0627
+      \u0646\u064E\u062D\u0652\u0646\u064F \u062C\u064F\u0644\u064F\u0648\u0652\u0633\u064C
+      \u0639\u0650\u0646\u0652\u062F\u064E \u0631\u064E\u0633\u064F\u0648\u0652\u0644\u0650
+      \u0627\u0644\u0644\u0647\u0650\_\u0635\u0644\u0649 \u0627\u0644\u0644\u0647
+      \u0639\u0644\u064A\u0647 \u0648 \u0633\u0644\u0651\u0645 \u0630\u064E\u0627\u062A\u064E
+      \u064A\u064E\u0648\u0652\u0645\u064D \u0625\u0650\u0630\u0652 \u0637\u064E\u0644\u064E\u0639\u064E
+      \u0639\u064E\u0644\u064E\u064A\u0652\u0646\u064E\u0627 \u0631\u064E\u062C\u064F\u0644\u064C
+      \u0634\u064E\u062F\u0650\u064A\u0652\u062F\u064F \u0628\u064E\u064A\u064E\u0627\u0636\u0650
+      \u0627\u0644\u062B\u0651\u0650\u064A\u064E\u0627\u0628\u0650 \u0634\u064E\u062F\u0650\u064A\u0652\u062F\u064F
+      \u0633\u064E\u0648\u064E\u0627\u062F\u0650 \u0627\u0644\u0634\u0651\u064E\u0639\u0652\u0631\u0650
+      \u0644\u0627\u064E \u064A\u064F\u0631\u064E\u0649 \u0639\u064E\u0644\u064E\u064A\u0652\u0647\u0650
+      \u0623\u064E\u062B\u064E\u0631\u064F \u0627\u0644\u0633\u0651\u064E\u0641\u064E\u0631\u0650
+      \u0648\u064E\u0644\u0627\u064E \u064A\u064E\u0639\u0652\u0631\u0650\u0641\u064F\u0647\u064F
+      \u0645\u0650\u0646\u0651\u064E\u0627 \u0623\u064E\u062D\u064E\u062F\u064C \u062D\u064E\u062A\u0651\u064E\u0649
+      \u062C\u064E\u0644\u064E\u0633\u064E \u0625\u0650\u0644\u064E\u0649 \u0627\u0644\u0646\u0651\u064E\u0628\u0650\u064A\u0651\u0650
+      \u0635\u0644\u0649 \u0627\u0644\u0644\u0647 \u0639\u0644\u064A\u0647 \u0648\u0633\u0644\u0645
+      \u0641\u064E\u0623\u064E\u0633\u0652\u0646\u064E\u062F\u064E \u0631\u064F\u0643\u0652\u0628\u064E\u062A\u064E\u064A\u0652\u0647\u0650
+      \u0625\u0650\u0644\u064E\u0649 \u0631\u064F\u0643\u0652\u0628\u064E\u062A\u064E\u064A\u0652\u0647\u0650
+      \u0648\u064E\u0648\u064E\u0636\u064E\u0639\u064E \u0643\u064E\u0641\u0651\u064E\u064A\u0652\u0647\u0650
+      \u0639\u064E\u0644\u064E\u0649 \u0641\u064E\u062E\u0650\u0630\u064E\u064A\u0652\u0647\u0650
+      \u0648\u064E\u0642\u064E\u0627\u0644\u064E: \u064A\u064E\u0627 \u0645\u064F\u062D\u064E\u0645\u0651\u064E\u062F\u064F
+      \u0623\u064E\u062E\u0652\u0628\u0650\u0631\u0652\u0646\u0650\u064A \u0639\u064E\u0646\u0650
+      \u0627\u0644\u0625\u0650\u0633\u0652\u0644\u0627\u064E\u0645\u060C \u0641\u064E\u0642\u064E\u0627\u0644\u064E
+      \u0631\u064E\u0633\u064F\u0648\u0644\u064F \u0627\u0644\u0644\u0647\u0650 \u0635\u0644\u0649
+      \u0627\u0644\u0644\u0647 \u0639\u0644\u064A\u0647 \u0648\u0633\u0644\u0645:
+      (\u0627\u0644\u0625\u0650\u0633\u0652\u0644\u0627\u064E\u0645\u064F \u0623\u064E\u0646\u0652
+      \u062A\u064E\u0634\u0652\u0647\u064E\u062F\u064E \u0623\u064E\u0646\u0652 \u0644\u0627\u064E
+      \u0625\u0650\u0644\u064E\u0647\u064E \u0625\u0650\u0644\u0627\u0651\u064E \u0627\u0644\u0644\u0647\u064F
+      \u0648\u064E\u0623\u064E\u0646\u0651\u064E \u0645\u064F\u062D\u064E\u0645\u0651\u064E\u062F\u064E\u0627\u064B
+      \u0631\u064E\u0633\u064F\u0648\u0652\u0644\u064F \u0627\u0644\u0644\u0647\u0650\u060C
+      \u0648\u064E\u062A\u064F\u0642\u0650\u064A\u0652\u0645\u064E \u0627\u0644\u0635\u0651\u064E\u0644\u0627\u064E\u0629\u064E\u060C
+      \u0648\u064E\u062A\u064F\u0624\u0652\u062A\u0650\u064A\u064E \u0627\u0644\u0632\u0651\u064E\u0643\u064E\u0627\u0629\u064E\u060C
+      \u0648\u064E\u062A\u064E\u0635\u064F\u0648\u0652\u0645\u064E \u0631\u064E\u0645\u064E\u0636\u064E\u0627\u0646\u064E\u060C
+      \u0648\u064E\u062A\u064E\u062D\u064F\u062C\u0651\u064E \u0627\u0644\u0628\u064A\u0652\u062A\u064E
+      \u0625\u0650\u0646\u0650 \u0627\u0650\u0633\u0652\u062A\u064E\u0637\u064E\u0639\u062A\u064E
+      \u0625\u0650\u0644\u064A\u0652\u0647\u0650 \u0633\u064E\u0628\u0650\u064A\u0652\u0644\u0627\u064B.
+      \u0642\u064E\u0627\u0644\u064E: \u0635\u064E\u062F\u064E\u0642\u0652\u062A\u064E.
+      \u0641\u064E\u0639\u064E\u062C\u0650\u0628\u0652\u0646\u064E\u0627 \u0644\u064E\u0647\u064F
+      \u064A\u064E\u0633\u0652\u0623\u064E\u0644\u064F\u0647\u064F \u0648\u064E\u064A\u064F\u0635\u064E\u062F\u0651\u0650\u0642\u064F\u0647\u064F\u060C
+      \u0642\u064E\u0627\u0644\u064E: \u0641\u064E\u0623\u064E\u062E\u0652\u0628\u0650\u0631\u0652\u0646\u0650\u064A\u0652
+      \u0639\u064E\u0646\u0650 \u0627\u0644\u0625\u0650\u064A\u0652\u0645\u064E\u0627\u0646\u0650\u060C
+      \u0642\u064E\u0627\u0644\u064E: \u0623\u064E\u0646\u0652 \u062A\u064F\u0624\u0652\u0645\u0650\u0646\u064E
+      \u0628\u0650\u0627\u0644\u0644\u0647\u0650\u060C \u0648\u064E\u0645\u064E\u0644\u0627\u0626\u0650\u0643\u064E\u062A\u0650\u0647\u0650\u060C
+      \u0648\u064E\u0643\u064F\u062A\u064F\u0628\u0650\u0647\u0650 \u0648\u064E\u0631\u064F\u0633\u064F\u0644\u0650\u0647\u0650\u060C
+      \u0648\u064E\u0627\u0644\u0652\u064A\u064E\u0648\u0652\u0645\u0650 \u0627\u0644\u0622\u064E\u062E\u0650\u0631\u0650\u060C
+      \u0648\u064E\u062A\u064F\u0624\u0652\u0645\u0650\u0646\u064E \u0628\u0650\u0627\u0644\u0642\u064E\u062F\u064E\u0631\u0650
+      \u062E\u064E\u064A\u0652\u0631\u0650\u0647\u0650 \u0648\u064E\u0634\u064E\u0631\u0651\u0650\u0647\u0650
+      \u0642\u064E\u0627\u0644\u064E: \u0635\u064E\u062F\u064E\u0642\u0652\u062A\u064E\u060C
+      \u0642\u064E\u0627\u0644\u064E: \u0641\u064E\u0623\u064E\u062E\u0652\u0628\u0650\u0631\u0652\u0646\u0650\u064A\u0652
+      \u0639\u064E\u0646\u0650 \u0627\u0644\u0625\u0650\u062D\u0652\u0633\u064E\u0627\u0646\u0650\u060C
+      \u0642\u064E\u0627\u0644\u064E: \u0623\u064E\u0646\u0652 \u062A\u064E\u0639\u0652\u0628\u064F\u062F\u064E
+      \u0627\u0644\u0644\u0647\u064E \u0643\u064E\u0623\u064E\u0646\u0651\u064E\u0643\u064E
+      \u062A\u064E\u0631\u064E\u0627\u0647\u064F\u060C \u0641\u064E\u0625\u0650\u0646\u0652
+      \u0644\u064E\u0645\u0652 \u062A\u064E\u0643\u064F\u0646\u0652 \u062A\u064E\u0631\u064E\u0627\u0647\u064F
+      \u0641\u064E\u0625\u0650\u0646\u0651\u064E\u0647\u064F \u064A\u064E\u0631\u064E\u0627\u0643\u064E
+      \u0642\u064E\u0627\u0644\u064E: \u0641\u064E\u0623\u064E\u062E\u0652\u0628\u0650\u0631\u0652\u0646\u0650\u064A
+      \u0639\u064E\u0646\u0650 \u0627\u0644\u0633\u0651\u064E\u0627\u0639\u064E\u0629\u0650\u060C
+      \u0642\u064E\u0627\u0644\u064E: \u0645\u064E\u0627 \u0627\u0644\u0652\u0645\u064E\u0633\u0626\u064F\u0648\u064F\u0644\u064F
+      \u0639\u064E\u0646\u0652\u0647\u064E\u0627 \u0628\u0650\u0623\u064E\u0639\u0652\u0644\u064E\u0645\u064E
+      \u0645\u0650\u0646\u064E \u0627\u0644\u0633\u0651\u064E\u0627\u0626\u0650\u0644\u0650
+      \u0642\u064E\u0627\u0644\u064E: \u0641\u064E\u0623\u064E\u062E\u0652\u0628\u0650\u0631\u0652\u0646\u0650\u064A\u0652
+      \u0639\u064E\u0646\u0652 \u0623\u064E\u0645\u064E\u0627\u0631\u064E\u0627\u062A\u0650\u0647\u064E\u0627\u060C
+      \u0642\u064E\u0627\u0644\u064E: \u0623\u064E\u0646\u0652 \u062A\u064E\u0644\u0650\u062F\u064E
+      \u0627\u0644\u0623\u064E\u0645\u064E\u0629\u064F \u0631\u064E\u0628\u0651\u064E\u062A\u064E\u0647\u064E\u0627\u060C
+      \u0648\u064E\u0623\u064E\u0646\u0652 \u062A\u064E\u0631\u064E\u0649 \u0627\u0644\u0652\u062D\u064F\u0641\u064E\u0627\u0629\u064E
+      \u0627\u0644\u0652\u0639\u064F\u0631\u064E\u0627\u0629\u064E \u0627\u0644\u0652\u0639\u064E\u0627\u0644\u064E\u0629\u064E
+      \u0631\u0650\u0639\u064E\u0627\u0621\u064E \u0627\u0644\u0634\u0651\u064E\u0627\u0621\u0650
+      \u064A\u064E\u062A\u064E\u0637\u064E\u0627\u0648\u064E\u0644\u064F\u0648\u0652\u0646\u064E
+      \u0641\u0650\u064A \u0627\u0644\u0628\u064F\u0646\u0652\u064A\u064E\u0627\u0646\u0650
+      \u062B\u064F\u0645\u0651\u064E \u0627\u0646\u0652\u0637\u064E\u0644\u064E\u0642\u064E
+      \u0641\u064E\u0644\u064E\u0628\u0650\u062B\u0652\u062A\u064F \u0645\u064E\u0644\u0650\u064A\u0651\u064E\u0627\u064B
+      \u062B\u064F\u0645\u0651\u064E \u0642\u064E\u0627\u0644\u064E: \u064A\u064E\u0627
+      \u0639\u064F\u0645\u064E\u0631\u064F \u0623\u062A\u064E\u062F\u0652\u0631\u0650\u064A
+      \u0645\u064E\u0646\u0650 \u0627\u0644\u0633\u0651\u064E\u0627\u0626\u0650\u0644\u064F\u061F
+      \u0642\u064F\u0644\u0652\u062A\u064F: \u0627\u0644\u0644\u0647\u064F \u0648\u064E\u0631\u064E\u0633\u064F\u0648\u0652\u0644\u064F\u0647\u064F
+      \u0623\u064E\u0639\u0652\u0644\u064E\u0645\u064F\u060C \u0642\u064E\u0627\u0644\u064E:
+      \u0641\u064E\u0625\u0650\u0646\u0651\u064E\u0647\u064F \u062C\u0650\u0628\u0652\u0631\u0650\u064A\u0652\u0644\u064F
+      \u0623\u064E\u062A\u064E\u0627\u0643\u064F\u0645\u0652 \u064A\u064F\u0639\u064E\u0644\u0651\u0650\u0645\u064F\u0643\u064F\u0645\u0652
+      \u062F\u0650\u064A\u0652\u0646\u064E\u0643\u064F\u0645\u0652. \u0631\u064E\u0648\u064E\u0627\u0647\u064F
+      \u0645\u064F\u0633\u0652\u0644\u0650\u0645\u064C."
+    indo: "Dari Umar\_radhiyallahu \u2018anhu\_pula dia berkata; pada suatu hari
+      ketika kami sedang duduk-duduk bersama Rasulullah\_shallallahu \u2018alaihi
+      wa sallam, tiba-tiba datang seorang laki-laki berpakaian sangat putih, dan
+      rambutnya sangat hitam, tidak terlihat padanya tanda-tanda bekas perjalanan,
+      dan tidak seorang pun dari kami yang mengenalnya, kemudian ia duduk di hadapan
+      Nabi\_shallallahu \u2018alaihi wa sallam\_dan mendekatkan lututnya lalu meletakkan
+      kedua tangannya di atas pahanya, seraya berkata: \u2018Wahai Muhammad jelaskan
+      kepadaku tentang Islam?\u2019 Nabi\_shallallahu \u2018alaihi wa sallam\_menjawab:\_\u201DIslam\_itu\_adalah
+      engkau bersaksi bahwa tidak ada\_sesembahan\_yang berhak diibadahi dengan\_benar\_kecuali
+      Allah dan Muhammad adalah utusan-Nya, engkau menegakkan shalat, menunaikan
+      zakat, puasa Ramadhan dan haji ke Baitullah Al Haram jika engkau\_mampu mengadakan\_perjalanan
+      ke sana.\u201D\_Laki-laki tersebut berkata: \u2018Engkau benar.\u2019 Maka
+      kami pun terheran-heran padanya, dia yang bertanya dan dia sendiri yang membenarkan
+      jawabannya. Dia berkata lagi: \u201CJelaskan kepadaku tentang iman?\u201D Nabi\_shallallahu
+      \u2018alaihi wa sallam\_menjawab:\_\u201C(Iman itu adalah)\_Engkau beriman
+      kepada Allah, malaikat-malaikat-Nya, kitab-kitab-Nya, rasul-rasul-Nya dan hari
+      akhir serta engkau beriman kepada takdir baik dan buruk.\u201D\_Ia berkata:
+      \u2018Engkau benar.\u2019 Kemudian laki-laki tersebut bertanya lagi: \u2018Jelaskan
+      kepadaku tentang\_ihsan?\u2019 Beliau\_shallallahu \u2018alaihi wa sallam\_bersabda:\_\u201C(Ihsan
+      adalah) Engkau beribadah kepada Allah seolah-olah engkau melihat-Nya.\_Kalaupun
+      engkau\_tidak bisa melihat-Nya, sungguh Diamelihatmu.\u201D\_Dia berkata: \u201CBeritahu
+      kepadaku kapan terjadinya kiamat?\u201D Nabi\_shallallahu \u2018alaihi wa sallam\_menjawab:
+      \u201CTidaklah orang yang ditanya lebih mengetahui dari\_yang bertanya.\u201D\_Ia
+      berkata: \u201CJelaskan kepadaku tanda-tandanya!\u201D Nabi\_shallallahu \u2018alaihi
+      wa sallam\_berkata: \u201CJika seorang budak\_wanita\_melahirkan tuannya dan\_jika
+      engkau mendapati\_penggembala kambing\_yang tidak beralas kaki\_dan\_tidak\_pakaian\_saling\_berlomba
+      dalam meninggikan bangunan.\u201D\r\nUmar\_radhiyallahu \u2018anhu\_berkata:
+      \u2018Kemudian laki-laki itu pergi, aku pun terdiam sejenak.\u2019 Maka Rasulullah\_shallallahu
+      \u2018alaihi wa sallam\_bertanya kepadaku:\_\u201CWahai \u2018Umar, tahukah
+      engkau siapa orang tadi?\u201D\_Aku pun menjawab: \u201CAllah dan Rasul-Nya
+      lebih tahu.\u201D\_ Nabi\_shallallahu \u2018alaihi wa sallam\_bersabda:\_\u201CDia
+      adalah Jibril\_yang\_datang untuk mengajarkan agama ini kepada kalian.\u201D\_(HR
+      Muslim)\r\nDiriwayatkan oleh Muslim (8)."
+    inggris: "'Umar (may Allah be pleased with him) also reported: One day while
+      we were sitting with the Messenger of Allah (blessings and peace of Allah be
+      upon him), a man dressed in very white clothes, and his hair was very black,
+      and there was no sign of travel on him, and none of us knew him, so he sat
+      down in front of the Prophet (blessings and peace of Allah be upon him) and
+      brought his knees close to him and put his hands on his thighs, and said: \u201CO
+      Muhammad, explain to me about Islam?\u201D The Prophet (blessings and peace
+      of Allah be upon him) replied: \u201CIslam is that you testify that there is
+      no god but Allah and that Muhammad is His messenger, that you establish prayer,
+      pay zakat, fast in Ramadan and perform Hajj to the House of Allah Al Haram
+      if you are able to travel there.\u201D The man said: 'You are right.' So we
+      were amazed at him, he asked the question and he confirmed the answer. He said
+      again: \u201CExplain to me about faith?\u201D The Prophet (peace and blessings
+      of Allah be upon him) replied: \u201CYou believe in Allah, His angels, His
+      books, His messengers and the Last Day, and you believe in good and bad destiny.\u201D
+      He said: 'You are right.' Then the man asked again: 'Explain to me about ihsan?'
+      He (peace be upon him) said: \u201C(Ihsan is) You worship Allah as if you see
+      Him. Even if you do not see Him, He sees you.\u201D He said: \u201CTell me
+      when the Hour will be?\u201D The Prophet (peace and blessings of Allaah be
+      upon him) replied: \u201CThe one who is asked does not know more than the one
+      who asks.\u201D He said: \u201CDescribe to me the signs!\u201D The Prophet
+      said: \u201CIf a slave girl gives birth to her master and if you find goat
+      herders who have no feet and no clothes competing with each other in raising
+      buildings.\u201D\r\n'Umar (may Allah be pleased with him) said: \u201CThen
+      the man left, and I was silent for a moment. Then the Messenger of Allah (blessings
+      and peace of Allah be upon him) asked me: \u201CO 'Umar, do you know who that
+      man was?\u201D I replied: \u201CAllah and His Messenger know better.\u201D 
+      The Prophet (peace and blessings of Allaah be upon him) said: \u201CHe is Jibril
+      who came to teach you this religion.\u201D (HR Muslim)\r\nNarrated by Muslim
+      (8).\r\n\r\nTranslated with DeepL.com (free version)"
+    audioClips:
+    - {fileID: 0}

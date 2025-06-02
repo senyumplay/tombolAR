@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
 using System.IO;
+using UnityEngine.Networking;
 
 public class BackgroundManager : MonoBehaviour
 {
@@ -11,7 +12,7 @@ public class BackgroundManager : MonoBehaviour
 
     [Header("Source Settings")]
     [SerializeField] private BackgroundSource source = BackgroundSource.Download;
-    [SerializeField] private Sprite[] localSprites; // Untuk local mode
+    [SerializeField] private string[] streamingAssetImageNames; // Nama file di StreamingAssets
 
     [Header("Download Dependencies")]
     [SerializeField] private ImageDownloader imageDownloader;
@@ -31,7 +32,7 @@ public class BackgroundManager : MonoBehaviour
     {
         if (source == BackgroundSource.Local)
         {
-            LoadLocalSprites();
+            StartCoroutine(LoadSpritesFromStreamingAssets());
         }
         else if (source == BackgroundSource.Download)
         {
@@ -41,18 +42,38 @@ public class BackgroundManager : MonoBehaviour
         }
     }
 
-    private void LoadLocalSprites()
+    private IEnumerator LoadSpritesFromStreamingAssets()
     {
-        foreach (var sprite in localSprites)
+        foreach (string fileName in streamingAssetImageNames)
         {
-            if (sprite == null) continue;
+            string filePath = Path.Combine(Application.streamingAssetsPath, fileName);
 
-            GameObject instance = Instantiate(imagePrefab, parentPanel);
-            Image image = instance.GetComponent<Image>();
-            image.sprite = sprite;
-            image.color = new Color(1, 1, 1, 0);
-            image.transform.localScale = Vector3.one;
-            imageInstances.Add(image);
+#if UNITY_ANDROID && !UNITY_EDITOR
+            string uri = "jar:file://" + Application.dataPath + "!/assets/" + fileName;
+#else
+            string uri = "file://" + filePath;
+#endif
+
+            using (UnityWebRequest www = UnityWebRequestTexture.GetTexture(uri))
+            {
+                yield return www.SendWebRequest();
+
+                if (www.result != UnityWebRequest.Result.Success)
+                {
+                    Debug.LogWarning("Failed to load from StreamingAssets: " + www.error);
+                    continue;
+                }
+
+                Texture2D texture = DownloadHandlerTexture.GetContent(www);
+                Sprite sprite = Sprite.Create(texture, new Rect(0, 0, texture.width, texture.height), Vector2.one * 0.5f);
+
+                GameObject instance = Instantiate(imagePrefab, parentPanel);
+                Image image = instance.GetComponent<Image>();
+                image.sprite = sprite;
+                image.color = new Color(1, 1, 1, 0);
+                image.transform.localScale = Vector3.one;
+                imageInstances.Add(image);
+            }
         }
 
         if (imageInstances.Count > 0)
@@ -61,7 +82,7 @@ public class BackgroundManager : MonoBehaviour
         }
         else
         {
-            Debug.LogWarning("No local sprites found.");
+            Debug.LogWarning("No images found in StreamingAssets.");
         }
     }
 

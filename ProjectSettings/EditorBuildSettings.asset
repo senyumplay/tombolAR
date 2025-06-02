@@ -5,6 +5,9 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
+  - enabled: 0
+    path: Assets/UniWebView/Demo/UniWebViewDemo.unity
+    guid: 938c077f40a814d4584ce2ad17947cf3
   - enabled: 1
     path: Assets/Scenes/Loader.unity
     guid: 8c7af3bc0c9499042bf5aca745fdad08
