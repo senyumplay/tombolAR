@@ -5,9 +5,6 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/UniWebView/Demo/UniWebViewDemo.unity
-    guid: 938c077f40a814d4584ce2ad17947cf3
   - enabled: 1
     path: Assets/Scenes/Loader.unity
     guid: 8c7af3bc0c9499042bf5aca745fdad08
@@ -17,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: 70ed598027ce50d4c868682dafb4c03e
+  - enabled: 1
+    path: Assets/Scenes/ARSimulator.unity
+    guid: d01692208597b5d48a06344389957213
   m_configObjects: {}

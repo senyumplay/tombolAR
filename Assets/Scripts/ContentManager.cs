@@ -4,124 +4,87 @@ using TMPro;
 using System;
 using System.Collections.Generic;
 using Random = UnityEngine.Random;
-
+/// <summary>
+/// Manage Data Content (Non UI)
+/// </summary>
 public class ContentManager : MonoBehaviour
 {
-    [Header("Hadith Content Data")]
-    public HadithDatabase contentData;
+    [SerializeField] private HaditsCollection contentCollection;
 
-    [Header("UI Components")]
-    public GameObject contentPanel;
-    public TextMeshProUGUI judulText;
-    public Image isiHaditsImage;
-    public TextMeshProUGUI arabicText;
-    public TextMeshProUGUI translateText;
+    [SerializeField] private GameEventSO onRecentButtonPressed;
+    [SerializeField] private BoolGameEventSO onCanCopyContent;
 
-    [Header("Settings")]
-    private bool isTranslateID = true;
+    private List<int> remainingIndices;
+    private int index;
 
-    public static Action OnContentShow;
-    public static Action<AudioClip> OnSoundPlay;
-    public static Action OnContentClose;
+    public static event Action<int, string, string, string, string> onLoadContentCompleted;
 
 
-    private List<int> shuffledIndexes = new List<int>();
-    private int currentIndex = 0;
-
-    private void Start()
+    private void OnEnable()
     {
-        GenerateShuffledIndexes();
+        onRecentButtonPressed?.Register(HandleShowContentPanel);
+
     }
-    void Update()
+    private void OnDisable()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            ShowContentPanel();
+        onRecentButtonPressed?.Unregister(HandleShowContentPanel);
+    }
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space)) {
+
+            index = GetNextIndex();
+            Debug.Log($"Index terpilih :{index}");
+
+            HandleShowContentPanel();
+            LoadLocalContent();
+
         }
     }
-
-    public void ShowContentPanel()
+    private void HandleShowContentPanel()
     {
-        if (contentData == null)
-        {
-            Debug.LogWarning("Hadith content data is not assigned.");
-            return;
-        }
+        
 
-        contentPanel.SetActive(true);
-
-        //isiHaditsImage.sprite = contentData.isiHaditsImage;
-        //isiHaditsImage.SetNativeSize();
-
-        UpdateTranslation();
-
-        OnContentShow?.Invoke();
-
-        if (contentData.hadithList[currentIndex].audioClips != null)
-        {
-            OnSoundPlay?.Invoke(contentData.hadithList[currentIndex].audioClips[0]); //play default
-        }
     }
 
-    public void CloseContentPanel()
+    private void LoadLocalContent()
     {
-        contentPanel.SetActive(false);
-        OnContentClose?.Invoke();
+        int id = contentCollection.haditsList[index].id;
+        string title  = contentCollection.haditsList[index].judul;
+        string arabic_text = contentCollection.haditsList[index].arab;
+        string indo_text = contentCollection.haditsList[index].indo;
+        string english_text = contentCollection.haditsList[index].inggris;
+
+        onLoadContentCompleted?.Invoke(id, title, arabic_text, indo_text, english_text);
+        onCanCopyContent.Raise(true);
     }
 
-    public void ToggleTranslation()
+    #region Random Index
+    private void InitializeIndices()
     {
-        isTranslateID = !isTranslateID;
-        UpdateTranslation();
-    }
-
-    private void UpdateTranslation()
-    {
-        if (isTranslateID)
+        remainingIndices = new List<int>();
+        for (int i = 0; i < contentCollection.haditsList.Count; i++)
         {
-            judulText.text = contentData.hadithList[currentIndex].judul;
-            arabicText.text = contentData.hadithList[currentIndex].arab;
-            translateText.text = contentData.hadithList[currentIndex].indo;
-        }
-        else
-        {
-            judulText.text = contentData.hadithList[currentIndex].judul;
-            arabicText.text = contentData.hadithList[currentIndex].arab;
-            translateText.text = contentData.hadithList[currentIndex].inggris;
+            remainingIndices.Add(i);
         }
     }
-
-    private void GenerateShuffledIndexes()
-    {
-        shuffledIndexes.Clear();
-
-        for (int i = 0; i < contentData.hadithList.Count; i++)
-        {
-            shuffledIndexes.Add(i);
-        }
-
-        // Fisher-Yates Shuffle
-        for (int i = 0; i < shuffledIndexes.Count; i++)
-        {
-            int randomIndex = Random.Range(i, shuffledIndexes.Count);
-            int temp = shuffledIndexes[i];
-            shuffledIndexes[i] = shuffledIndexes[randomIndex];
-            shuffledIndexes[randomIndex] = temp;
-        }
-
-        currentIndex = 0;
-    }
-
     public int GetNextIndex()
     {
-        if (currentIndex >= shuffledIndexes.Count)
+        if (remainingIndices == null || remainingIndices.Count == 0)
         {
-            Debug.Log("Semua index sudah dipakai. Regenerate ulang.");
-            GenerateShuffledIndexes(); // bisa direset jika perlu mengulang
+            Debug.LogWarning("All indices have been used. Reinitializing...");
+            InitializeIndices(); 
         }
 
-        int next = shuffledIndexes[currentIndex];
-        currentIndex++;
-        return next;
+        int randomIndex = Random.Range(0, remainingIndices.Count);
+        int value = remainingIndices[randomIndex];
+        remainingIndices.RemoveAt(randomIndex);
+        return value;
     }
+    public void ResetGenerator()
+    {
+        InitializeIndices();
+    }
+    public int RemainingCount => remainingIndices.Count;
+    #endregion
 }

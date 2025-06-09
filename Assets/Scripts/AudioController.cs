@@ -2,38 +2,33 @@ using UnityEngine;
 
 public class AudioController : MonoBehaviour
 {
-    [SerializeField] private AudioSource audioSource;
+    public static AudioController Instance { get; private set; }
 
-    private void OnEnable()
+    private AudioSource audioSource;
+
+    private void Awake()
     {
-        ContentManager.OnSoundPlay += AutoPlaySoundContent;
-        ContentManager.OnContentClose += StopAudio;
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        Instance = this;
+        audioSource = gameObject.AddComponent<AudioSource>();
+        DontDestroyOnLoad(gameObject);
     }
 
-    private void OnDisable()
+    public void Play(AudioClip clip)
     {
-        ContentManager.OnSoundPlay -= AutoPlaySoundContent;
-        ContentManager.OnContentClose -= StopAudio;
-    }
-
-    private void AutoPlaySoundContent(AudioClip clip)
-    {
+        if (clip == null) return;
         audioSource.clip = clip;
         audioSource.Play();
     }
 
-    private void StopAudio()
-    {
-        audioSource.Stop();
-    }
+    public void Pause() => audioSource.Pause();
 
-    public void PlaySound()
-    {
-        audioSource.Play();
-    }
+    public void Stop() => audioSource.Stop();
 
-    public void PauseSound()
-    {
-        audioSource.Pause();
-    }
+    public bool IsPlaying => audioSource.isPlaying;
 }
