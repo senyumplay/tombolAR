@@ -11,11 +11,13 @@ public class BottomMenuController : MonoBehaviour
     [SerializeField] private Button playSoundButton;
     [SerializeField] private Button pauseSoundButton;
 
+
     [Space(5)]
     [Header("Events")]
     [SerializeField] private GameEventSO onHomeButtonPressed;
     [SerializeField] private GameEventSO onRecentButtonPressed;
     [SerializeField] private GameEventSO onCloseContentButtonPressed;
+    [SerializeField] private GameEventSO onSettingButtonPressed;
 
     private void OnEnable()
     {
@@ -23,6 +25,7 @@ public class BottomMenuController : MonoBehaviour
         onHomeButtonPressed?.Register(HandleHomeButtonPressed);
         onRecentButtonPressed?.Register(HandleRecentButtonPressed);
         onCloseContentButtonPressed?.Register(HandleCloseContentButtonPressed);
+        onSettingButtonPressed?.Register(HandleSettingButtonPressed);
     }
 
     private void OnDisable()
@@ -31,6 +34,7 @@ public class BottomMenuController : MonoBehaviour
         onHomeButtonPressed?.Unregister(HandleHomeButtonPressed);
         onRecentButtonPressed?.Unregister(HandleRecentButtonPressed);
         onCloseContentButtonPressed?.Unregister(HandleCloseContentButtonPressed);
+        onSettingButtonPressed?.Unregister(HandleSettingButtonPressed);
     }
 
     private void HandleHomeButtonPressed()
@@ -39,17 +43,15 @@ public class BottomMenuController : MonoBehaviour
     }
     private void HandleRecentButtonPressed()
     {
-
         recentButton.gameObject.SetActive(false);
         closeContentButton.gameObject.SetActive(true);
-
-        
     }
     private void HandleCloseContentButtonPressed()
     {
         recentButton.gameObject.SetActive(true);
         closeContentButton.gameObject.SetActive(false);
-
+    }
+    private void HandleSettingButtonPressed() { 
         
     }
 }

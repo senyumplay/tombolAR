@@ -6,6 +6,7 @@ public class ContentUIManager : MonoBehaviour
 {
     [SerializeField] private GameEventSO onRecentButtonPressed;
     [SerializeField] private GameEventSO onCloseContentButtonPressed;
+    [SerializeField] private GameEventSO onCloseSettingButtonPressed;
     [SerializeField] private int idContent;
     [SerializeField] private ToggleTranslate toggleTranslate;
 
@@ -18,10 +19,15 @@ public class ContentUIManager : MonoBehaviour
     private string cachedIndo;
     private string cachedEnglish;
 
+    private const string TEXT_SIZE_KEY = "TextSize";
+
     private void OnEnable()
     {
         onRecentButtonPressed?.Register(HandleOnRecentButtonPressed);
         onCloseContentButtonPressed?.Register(HandleOnCloseRecentButtonPressed);
+        onCloseSettingButtonPressed?.Register(ApplyTextSizeSetting);
+
+        SettingUIManager.OnTextSizeChanged += HandleTextSizeChanged;
 
         ContentManager.onLoadContentCompleted += UpdateContentUI;
         ToggleTranslate.OnModeChanged += UpdateTranslationLanguage;
@@ -31,9 +37,17 @@ public class ContentUIManager : MonoBehaviour
     {
         onRecentButtonPressed?.Unregister(HandleOnRecentButtonPressed);
         onCloseContentButtonPressed?.Unregister(HandleOnCloseRecentButtonPressed);
+        onCloseSettingButtonPressed?.Unregister(ApplyTextSizeSetting);
+
+        SettingUIManager.OnTextSizeChanged -= HandleTextSizeChanged;
 
         ContentManager.onLoadContentCompleted -= UpdateContentUI;
         ToggleTranslate.OnModeChanged -= UpdateTranslationLanguage;
+    }
+
+    private void Start()
+    {
+        ApplyTextSizeSetting();
     }
 
     private void UpdateContentUI(int id, string title, string arabic, string indo, string english)
@@ -52,6 +66,11 @@ public class ContentUIManager : MonoBehaviour
     {
         translateText.text = (mode == ToggleTranslate.Mode.ID) ? cachedIndo : cachedEnglish;
     }
+    private void HandleTextSizeChanged(float newSize)
+    {
+        arabicText.fontSize = newSize;
+        translateText.fontSize = newSize;
+    }
 
     private void HandleOnCloseRecentButtonPressed()
     {
@@ -61,5 +80,12 @@ public class ContentUIManager : MonoBehaviour
     private void HandleOnRecentButtonPressed()
     {
         contentPanel.SetActive(true);
+    }
+
+    private void ApplyTextSizeSetting()
+    {
+        float textSize = PlayerPrefs.GetFloat(TEXT_SIZE_KEY, 36f); // default size
+        arabicText.fontSize = textSize;
+        translateText.fontSize = textSize;
     }
 }
