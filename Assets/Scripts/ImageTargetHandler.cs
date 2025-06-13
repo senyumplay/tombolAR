@@ -7,7 +7,8 @@ using System.Collections.Generic;
 public class ImageTargetContentHandler : MonoBehaviour
 {
     [Header("Events")]
-    public GameEventSO onImageTargetDetected;
+    [SerializeField] private GameEventSO onImageTargetDetected;
+    [SerializeField] private IntGameEventSO generatedRandomId;
 
     [Header("AR Components")]
     [SerializeField] private ARSession arSession;
@@ -15,8 +16,9 @@ public class ImageTargetContentHandler : MonoBehaviour
 
     [Header("Target Content Map")]
     [Tooltip("Mapping nama image ke rentang ID")]
-    public List<TargetContentRange> targetContents = new List<TargetContentRange>();
+    [SerializeField] private List<TargetContentRange> targetContents = new List<TargetContentRange>();
 
+    private int randomId;
     private ARTrackedImageManager trackedImageManager;
     private bool hasDetected = false;
 
@@ -91,9 +93,10 @@ public class ImageTargetContentHandler : MonoBehaviour
         if (contentMap.ContainsKey(imageName))
         {
             Vector2Int range = contentMap[imageName];
-            int randomId = Random.Range(range.x, range.y + 1); // inclusive max
+            randomId = Random.Range(range.x, range.y + 1);
             Debug.Log($"{imageName} terdeteksi, generate ID: {randomId}");
 
+            generatedRandomId.Raise(randomId);
             // Simpan ke PlayerPrefs / kirim ke sistem lain jika perlu
             // PlayerPrefs.SetInt("GeneratedID", randomId);
         }
@@ -101,29 +104,29 @@ public class ImageTargetContentHandler : MonoBehaviour
         {
             Debug.LogWarning("No ID range mapped for image: " + imageName);
         }
-
+        
         // Invoke event
         onImageTargetDetected.Raise();
 
         // Disable AR camera
-        DisableARCamera();
+        //DisableARCamera();
     }
 
     public void DisableARCamera()
     {
-        if (arCamera != null)
-            arCamera.gameObject.SetActive(false);
+        /*if (arCamera != null)
+            arCamera.gameObject.SetActive(false);*/
 
         if (arSession != null)
             arSession.enabled = false;
 
-        Debug.Log("AR Camera disabled");
+        Debug.Log("AR Session disabled");
     }
 
     public void EnableARCamera()
     {
-        if (arCamera != null)
-            arCamera.gameObject.SetActive(true);
+        /*if (arCamera != null)
+            arCamera.gameObject.SetActive(true);*/
 
         if (arSession != null)
             arSession.enabled = true;

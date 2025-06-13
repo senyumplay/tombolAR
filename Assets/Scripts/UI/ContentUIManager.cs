@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class ContentUIManager : MonoBehaviour
 {
+    [SerializeField] private ImageTargetContentHandler imageTargetContentHandler;
     [SerializeField] private GameEventSO onRecentButtonPressed;
     [SerializeField] private GameEventSO onCloseContentButtonPressed;
     [SerializeField] private GameEventSO onCloseSettingButtonPressed;
+    [SerializeField] private GameEventSO onImageTargetDetected;
     [SerializeField] private int idContent;
     [SerializeField] private ToggleTranslate toggleTranslate;
 
@@ -26,6 +28,7 @@ public class ContentUIManager : MonoBehaviour
         onRecentButtonPressed?.Register(HandleOnRecentButtonPressed);
         onCloseContentButtonPressed?.Register(HandleOnCloseRecentButtonPressed);
         onCloseSettingButtonPressed?.Register(ApplyTextSizeSetting);
+        onImageTargetDetected?.Register(HandleOnImageTargetDetected);
 
         SettingUIManager.OnTextSizeChanged += HandleTextSizeChanged;
 
@@ -38,6 +41,7 @@ public class ContentUIManager : MonoBehaviour
         onRecentButtonPressed?.Unregister(HandleOnRecentButtonPressed);
         onCloseContentButtonPressed?.Unregister(HandleOnCloseRecentButtonPressed);
         onCloseSettingButtonPressed?.Unregister(ApplyTextSizeSetting);
+        onImageTargetDetected?.Unregister(HandleOnImageTargetDetected);
 
         SettingUIManager.OnTextSizeChanged -= HandleTextSizeChanged;
 
@@ -61,7 +65,9 @@ public class ContentUIManager : MonoBehaviour
 
         UpdateTranslationLanguage(toggleTranslate.CurrentMode);
     }
-
+    private void HandleOnImageTargetDetected() {
+        contentPanel.SetActive(true);
+    }
     private void UpdateTranslationLanguage(ToggleTranslate.Mode mode)
     {
         translateText.text = (mode == ToggleTranslate.Mode.ID) ? cachedIndo : cachedEnglish;
@@ -75,6 +81,7 @@ public class ContentUIManager : MonoBehaviour
     private void HandleOnCloseRecentButtonPressed()
     {
         contentPanel.SetActive(false);
+        imageTargetContentHandler.EnableARCamera();
     }
 
     private void HandleOnRecentButtonPressed()

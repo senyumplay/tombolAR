@@ -11,43 +11,30 @@ public class ContentManager : MonoBehaviour
 {
     [SerializeField] private HaditsCollection contentCollection;
 
-    [SerializeField] private GameEventSO onRecentButtonPressed;
     [SerializeField] private BoolGameEventSO onCanCopyContent;
-
-    private List<int> remainingIndices;
-    private int index;
+    [SerializeField] private IntGameEventSO generatedRandomId;
 
     public static event Action<int, string, string, string, string> onLoadContentCompleted;
 
+    private List<int> remainingIndices;
 
     private void OnEnable()
     {
-        onRecentButtonPressed?.Register(HandleShowContentPanel);
+        generatedRandomId.Register(HandleGeneratedRandomId);
 
     }
     private void OnDisable()
     {
-        onRecentButtonPressed?.Unregister(HandleShowContentPanel);
+        generatedRandomId.Unregister(HandleGeneratedRandomId);
     }
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space)) {
-
-            index = GetNextIndex();
-            Debug.Log($"Index terpilih :{index}");
-
-            HandleShowContentPanel();
-            LoadLocalContent();
-
-        }
-    }
-    private void HandleShowContentPanel()
-    {
         
-
     }
-
-    private void LoadLocalContent()
+    private void HandleGeneratedRandomId(int index) {
+        LoadLocalContent(index);
+    }
+    private void LoadLocalContent(int index)
     {
         int id = contentCollection.haditsList[index].id;
         string title  = contentCollection.haditsList[index].judul;

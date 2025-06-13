@@ -19,39 +19,77 @@ public class BottomMenuController : MonoBehaviour
     [SerializeField] private GameEventSO onCloseContentButtonPressed;
     [SerializeField] private GameEventSO onSettingButtonPressed;
 
+    [SerializeField] private GameEventSO onImageTargetDetected;
+    [SerializeField] private BoolGameEventSO onAudioReciterPlay;
+
     private void OnEnable()
     {
         
-        onHomeButtonPressed?.Register(HandleHomeButtonPressed);
-        onRecentButtonPressed?.Register(HandleRecentButtonPressed);
-        onCloseContentButtonPressed?.Register(HandleCloseContentButtonPressed);
-        onSettingButtonPressed?.Register(HandleSettingButtonPressed);
+        onHomeButtonPressed.Register(HandleHomeButtonPressed);
+        onRecentButtonPressed.Register(HandleRecentButtonPressed);
+        onCloseContentButtonPressed.Register(HandleCloseContentButtonPressed);
+        onSettingButtonPressed.Register(HandleSettingButtonPressed);
+
+        onImageTargetDetected.Register(HandleImageTargetDetected);
+        onAudioReciterPlay.Register(HandleAudioReciterPlay);
     }
 
     private void OnDisable()
     {
         
-        onHomeButtonPressed?.Unregister(HandleHomeButtonPressed);
-        onRecentButtonPressed?.Unregister(HandleRecentButtonPressed);
-        onCloseContentButtonPressed?.Unregister(HandleCloseContentButtonPressed);
-        onSettingButtonPressed?.Unregister(HandleSettingButtonPressed);
-    }
+        onHomeButtonPressed.Unregister(HandleHomeButtonPressed);
+        onRecentButtonPressed.Unregister(HandleRecentButtonPressed);
+        onCloseContentButtonPressed.Unregister(HandleCloseContentButtonPressed);
+        onSettingButtonPressed.Unregister(HandleSettingButtonPressed);
 
+        onImageTargetDetected.Unregister(HandleImageTargetDetected);
+        onAudioReciterPlay.Unregister(HandleAudioReciterPlay);
+    }
+    private void HandleAudioReciterPlay(bool isPlayed) {
+        if (isPlayed)
+        {
+            OnAudioReciterPlay();
+        }
+        else {
+            OnAudioReciterPause();
+        }
+    }
+    private void HandleImageTargetDetected() {
+        OnShowContent();
+        OnAudioReciterPlay();
+    }
     private void HandleHomeButtonPressed()
     {
         SceneManager.LoadScene("MainMenu");
     }
     private void HandleRecentButtonPressed()
     {
-        recentButton.gameObject.SetActive(false);
-        closeContentButton.gameObject.SetActive(true);
+        OnShowContent();
+        OnAudioReciterPlay();
     }
     private void HandleCloseContentButtonPressed()
     {
-        recentButton.gameObject.SetActive(true);
-        closeContentButton.gameObject.SetActive(false);
+        OnHideContent();
     }
     private void HandleSettingButtonPressed() { 
         
+    }
+
+    //Logic
+    private void OnShowContent() {
+        recentButton.gameObject.SetActive(false);
+        closeContentButton.gameObject.SetActive(true);
+    }
+    private void OnHideContent() {
+        recentButton.gameObject.SetActive(true);
+        closeContentButton.gameObject.SetActive(false);
+    }
+    private void OnAudioReciterPlay() { 
+        playSoundButton.gameObject.SetActive(false);
+        pauseSoundButton.gameObject.SetActive(true);
+    }
+    private void OnAudioReciterPause() {
+        playSoundButton.gameObject.SetActive(true);
+        pauseSoundButton.gameObject.SetActive(false);
     }
 }

@@ -25,11 +25,16 @@ public class IntoManager : MonoBehaviour
     [SerializeField] private Transform dotsContainer;
     private List<Image> dots = new List<Image>();
 
+    [Header("UI Button")]
+    [SerializeField] private Button finishButton;
+
     private void Start()
     {
+        finishButton.onClick.AddListener(OnFinishButtonClicked);
+
+
         if(!SaveManager.IsFirstLaunch())
             SceneManager.LoadScene("MainMenu");
-
 
         InitializePanel();
         InitializeDots(contentList.Count);
@@ -131,7 +136,8 @@ public class IntoManager : MonoBehaviour
         }
     }
 
-    public void OnFinishButtonClicked()
+    //Event Button
+    private void OnFinishButtonClicked()
     {
         SaveManager.SetFirstLaunchCompleted();
         SceneManager.LoadScene("MainMenu");

@@ -15,3 +15,6 @@ MonoBehaviour:
   haditsList:
   - {fileID: 11400000, guid: 5bfed24b91456ac479641bf2ad84b73a, type: 2}
   - {fileID: 11400000, guid: 710470ce24807f948af75df7e0ff3a5c, type: 2}
+  - {fileID: 11400000, guid: 972b8ece8b797a34db0351234fdbf59d, type: 2}
+  - {fileID: 11400000, guid: 16278a378862d6343b3e51e4b9bc9477, type: 2}
+  - {fileID: 11400000, guid: e4a56c8acafc9e94dbae99993a5f15fb, type: 2}
