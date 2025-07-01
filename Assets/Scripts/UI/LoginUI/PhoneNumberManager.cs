@@ -8,7 +8,7 @@ public class PhoneNumberManager : MonoBehaviour
     [SerializeField] private BoolGameEventSO onPhoneNumberValid;
 
     private string currentCountryCode = "+62"; // default
-    private string fullPhoneNumber = "";
+    [SerializeField] private string fullPhoneNumber = "";
 
     public void SetCountryCode(string code)
     {

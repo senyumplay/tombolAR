@@ -6,33 +6,129 @@ public class MainMenuManager : MonoBehaviour
 {
     [SerializeField] private UniWebView uniWebView;
 
-    [Header("UI Button")]
-    [SerializeField] private Button scanButton;
-    [SerializeField] private Button loginButton;
-    [SerializeField] private Button shopButton;
-    [SerializeField] private Button closeShopButton;
-    [SerializeField] private Button contactButton;
+    [SerializeField] private GameEventSO onScanButtonPressed;
+    [SerializeField] private GameEventSO onLoginButtonPressed;
+    [SerializeField] private GameEventSO onProfileButtonPressed;
+    [SerializeField] private GameEventSO onOpenShopButtonPressed;
+    [SerializeField] private GameEventSO onCloseShopButtonPressed;
+    [SerializeField] private GameEventSO onContactUsButtonPressed;
+    [SerializeField] private BoolGameEventSO OnSignUpSuccess;
+    [SerializeField] private BoolGameEventSO OnSignInSuccess;
+
+    [SerializeField] private GameEventSO onBackButtonPressed;
+
+    [SerializeField] private BoolGameEventSO isSignUpSuccess;
 
     [Header("UI Panel")]
     [SerializeField] private GameObject mainMenuPanel;
+    [SerializeField] private GameObject profilePanel;
     [SerializeField] private GameObject loginPanel;
     [SerializeField] private GameObject shopPanel;
+
+    [Header("Buttons")]
+    [SerializeField] private Button loginButton;
+    [SerializeField] private Button profileButton;
 
 
     [Header("WhatsApp Setting")]
     [SerializeField] private string phoneNumber = "+6287825035164";
     [SerializeField][TextArea] private string message = "Assalamu'alaikum warahmatullahi wabarakatuh";
+
+    private void OnEnable()
+    {
+        onScanButtonPressed.Register(HandleScanButtonPressed);
+        onLoginButtonPressed.Register(HandleLoginButtonPressed);
+        onProfileButtonPressed.Register(HandleProfileButtonPressed);
+
+        onOpenShopButtonPressed.Register(HandleOpenShopButtonPressed);
+        onCloseShopButtonPressed.Register(HandleCloseShopButtonPressed);
+
+        onContactUsButtonPressed.Register(HandleContactUsButtonPressed);
+
+        onBackButtonPressed.Register(HandlebackButtonPressed);
+
+        //isSignUpSuccess.Register(HandleIsSignUpSuccessful);
+
+        OnSignUpSuccess.Register(HandleOnSignUpOrSignInSuccess);
+        OnSignInSuccess.Register(HandleOnSignUpOrSignInSuccess);
+    }
+    private void OnDisable()
+    {
+        onScanButtonPressed.Unregister(HandleScanButtonPressed);
+        onLoginButtonPressed.Unregister(HandleLoginButtonPressed);
+        onProfileButtonPressed.Unregister(HandleProfileButtonPressed);
+
+        onOpenShopButtonPressed.Unregister(HandleOpenShopButtonPressed);
+        onCloseShopButtonPressed.Unregister(HandleCloseShopButtonPressed);
+
+        onContactUsButtonPressed.Unregister(HandleContactUsButtonPressed);
+
+        onBackButtonPressed.Unregister(HandlebackButtonPressed);
+
+        //isSignUpSuccess.Unregister(HandleIsSignUpSuccessful);
+
+        OnSignUpSuccess.Unregister(HandleOnSignUpOrSignInSuccess);
+        OnSignInSuccess.Unregister(HandleOnSignUpOrSignInSuccess);
+    }
     private void Start()
     {
-        scanButton.onClick.AddListener(LoadToARScene);
-        loginButton.onClick.AddListener(ShowLoginPanel);
-        shopButton.onClick.AddListener(OpenWebView);
-        closeShopButton.onClick.AddListener(CloseWebView);
-        contactButton.onClick.AddListener(SendWhatsApp);
-    }
-    
+        SetDefaultpanel();
 
-    private void SendWhatsApp()
+        
+    }
+    private void HandleOnSignUpOrSignInSuccess(bool value)
+    {
+        SetDefaultpanel();
+
+        if (value)
+        {
+            loginButton.gameObject.SetActive(false);
+            profileButton.gameObject.SetActive(true);
+        }
+        else {
+            loginButton.gameObject.SetActive(true);
+            profileButton.gameObject.SetActive(false);
+        }
+    }
+    private void InitiateButton()
+    {
+        bool alreadyLoggedIn = SaveManager.IsUserLoggedIn();
+        Debug.Log("asdasdasda"+alreadyLoggedIn);
+
+        if (alreadyLoggedIn)
+        {
+            loginButton.gameObject.SetActive(false);
+            profileButton.gameObject.SetActive(true);
+        }
+        else
+        {
+            loginButton.gameObject.SetActive(true);
+            profileButton.gameObject.SetActive(false);
+        }
+    }
+
+    private void SetDefaultpanel() { 
+        mainMenuPanel.SetActive(true);
+        loginPanel.SetActive(false);
+        profilePanel.SetActive(false);
+        shopPanel.SetActive(false);
+    }
+    private void HandleProfileButtonPressed() {
+        mainMenuPanel.SetActive(false);
+        profilePanel.SetActive(true);
+    }
+    /*private void HandleIsSignUpSuccessful(bool isSuccess)
+    {
+        if (isSuccess)
+        {
+            mainMenuPanel.SetActive(true);
+            loginPanel.SetActive(false);
+
+            
+        }
+    }*/
+    
+    private void HandleContactUsButtonPressed()
     {
         // Hapus '+' jika ada dan encode pesan
         string cleanPhoneNumber = phoneNumber.Replace("0", "+").Trim();
@@ -44,21 +140,24 @@ public class MainMenuManager : MonoBehaviour
         // Buka WhatsApp
         Application.OpenURL(url);
     }
-    private void ShowLoginPanel()
+    private void HandleLoginButtonPressed()
     { 
         mainMenuPanel.SetActive(false);
         loginPanel.SetActive(true);
     }
+    private void HandlebackButtonPressed() {
+        SetDefaultpanel();
+    }
 
-    private void LoadToARScene() {
+    private void HandleScanButtonPressed() {
         SceneManager.LoadScene("ARSimulator");
     }
-    private void CloseWebView()
+    private void HandleCloseShopButtonPressed()
     {
         shopPanel.SetActive(false);
         uniWebView.Hide();
     }
-    private void OpenWebView()
+    private void HandleOpenShopButtonPressed()
     {
         shopPanel.SetActive(true);
         uniWebView.Show();

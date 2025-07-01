@@ -1,0 +1,149 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2c58b380b3eeae4d846bbe441b40a8a, type: 3}
+  m_Name: SoutheastAsiaCountryCodes
+  m_EditorClassIdentifier: 
+  countryCodes:
+  - countryName: Afghanistan
+    countryCode: +93
+  - countryName: Argentina
+    countryCode: +54
+  - countryName: Australia
+    countryCode: +61
+  - countryName: Austria
+    countryCode: +43
+  - countryName: Bangladesh
+    countryCode: +880
+  - countryName: Belgium
+    countryCode: +32
+  - countryName: Brazil
+    countryCode: +55
+  - countryName: Brunei
+    countryCode: +673
+  - countryName: Cambodia
+    countryCode: +855
+  - countryName: Canada
+    countryCode: +1
+  - countryName: China
+    countryCode: +86
+  - countryName: Czech Republic
+    countryCode: +420
+  - countryName: Denmark
+    countryCode: +45
+  - countryName: Egypt
+    countryCode: +20
+  - countryName: Finland
+    countryCode: +358
+  - countryName: France
+    countryCode: +33
+  - countryName: Germany
+    countryCode: +49
+  - countryName: Greece
+    countryCode: +30
+  - countryName: India
+    countryCode: +91
+  - countryName: Indonesia
+    countryCode: +62
+  - countryName: Iran
+    countryCode: +98
+  - countryName: Iraq
+    countryCode: +964
+  - countryName: Ireland
+    countryCode: +353
+  - countryName: Israel
+    countryCode: +972
+  - countryName: Italy
+    countryCode: +39
+  - countryName: Japan
+    countryCode: +81
+  - countryName: Jordan
+    countryCode: +962
+  - countryName: Kazakhstan
+    countryCode: +7
+  - countryName: Kuwait
+    countryCode: +965
+  - countryName: Laos
+    countryCode: +856
+  - countryName: Lebanon
+    countryCode: +961
+  - countryName: Malaysia
+    countryCode: +60
+  - countryName: Mexico
+    countryCode: +52
+  - countryName: Myanmar (Burma)
+    countryCode: +95
+  - countryName: Nepal
+    countryCode: +977
+  - countryName: Netherlands
+    countryCode: +31
+  - countryName: New Zealand
+    countryCode: +64
+  - countryName: North Korea
+    countryCode: +850
+  - countryName: Norway
+    countryCode: +47
+  - countryName: Oman
+    countryCode: +968
+  - countryName: Pakistan
+    countryCode: +92
+  - countryName: Palestine
+    countryCode: +970
+  - countryName: Philippines
+    countryCode: +63
+  - countryName: Poland
+    countryCode: +48
+  - countryName: Portugal
+    countryCode: +351
+  - countryName: Qatar
+    countryCode: +974
+  - countryName: Russia
+    countryCode: +7
+  - countryName: Saudi Arabia
+    countryCode: +966
+  - countryName: Singapore
+    countryCode: +65
+  - countryName: South Korea
+    countryCode: +82
+  - countryName: Spain
+    countryCode: +34
+  - countryName: Sri Lanka
+    countryCode: +94
+  - countryName: Sweden
+    countryCode: +46
+  - countryName: Switzerland
+    countryCode: +41
+  - countryName: Syria
+    countryCode: +963
+  - countryName: Taiwan
+    countryCode: +886
+  - countryName: Thailand
+    countryCode: +66
+  - countryName: Timor-Leste
+    countryCode: +670
+  - countryName: Turkey
+    countryCode: +90
+  - countryName: Ukraine
+    countryCode: +380
+  - countryName: United Arab Emirates
+    countryCode: +971
+  - countryName: United Kingdom
+    countryCode: +44
+  - countryName: United States
+    countryCode: +1
+  - countryName: Uruguay
+    countryCode: +598
+  - countryName: Uzbekistan
+    countryCode: +998
+  - countryName: Vietnam
+    countryCode: +84
+  - countryName: Yemen
+    countryCode: +967
