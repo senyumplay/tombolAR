@@ -36,11 +36,17 @@ public class BackgroundManager : MonoBehaviour
         }
         else if (source == BackgroundSource.Download)
         {
+            // LOAD dari cache langsung, jangan tunggu download
             LoadCachedImages();
+
+            // Lanjutkan download di background tanpa blocking
             if (imageDownloader != null)
+            {
                 imageDownloader.OnDownloadComplete += OnImagesDownloaded;
+            }
         }
     }
+
 
     private IEnumerator LoadSpritesFromStreamingAssets()
     {

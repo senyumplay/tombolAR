@@ -1,4 +1,4 @@
-using System;
+  using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -9,6 +9,7 @@ public class ProfileManager : MonoBehaviour
 {
     [Header("Cognito")]
     [SerializeField] private CognitoSDKController cognitoSDKController;
+    [SerializeField] private CognitoHostedUIController cognitoHostedUIController;
     [Space(5)]
     [Header("UI Component")]
     [SerializeField] private Image profilePictureImage;
@@ -33,6 +34,7 @@ public class ProfileManager : MonoBehaviour
     [SerializeField] private GameEventSO onUpdateProfile;
     [SerializeField] private BoolGameEventSO OnSignUpSuccess;
     [SerializeField] private BoolGameEventSO OnSignInSuccess;
+    [SerializeField] private BoolGameEventSO OnSigningSuccess;
 
     public string GetNickname() => nickNameProfileInput.text;
     public string GetEmail() => emailProfileInput.text;
@@ -42,6 +44,8 @@ public class ProfileManager : MonoBehaviour
         onDeleteButtonPressed.Register(HandleDeleteButtonPressed);
         OnSignUpSuccess.Register(HandleOnSignUpOnSignInSuccess);
         OnSignInSuccess.Register(HandleOnSignUpOnSignInSuccess);
+
+        OnSigningSuccess.Register(HandleOnSigningSuccess);
 
         onProfileButtonPressed.Register(HandleOnProfileButtonPressed);
         onUpdateProfile.Register(HandleOnUpdateInfo);
@@ -54,8 +58,13 @@ public class ProfileManager : MonoBehaviour
         OnSignUpSuccess.Unregister(HandleOnSignUpOnSignInSuccess);
         OnSignInSuccess.Unregister(HandleOnSignUpOnSignInSuccess);
 
+        OnSigningSuccess.Unregister(HandleOnSigningSuccess);
+
         onProfileButtonPressed.Unregister(HandleOnProfileButtonPressed);
         onUpdateProfile.Unregister(HandleOnUpdateInfo);
+    }
+    private void HandleOnSigningSuccess(bool value) {
+        UpdateProfile();
     }
     private void HandleOnProfileButtonPressed() {
         UpdateProfile();
@@ -80,9 +89,13 @@ public class ProfileManager : MonoBehaviour
 
     private void UpdateProfile()
     {
-        string nickname = cognitoSDKController.GetUserNickname();
-        string email = cognitoSDKController.GetUserEmail();
-        string phone = cognitoSDKController.GetUserPhone();
+        string nickname = cognitoSDKController.userNickname;
+        string email = cognitoSDKController.userEmail;
+        string phone = cognitoSDKController.userPhone;
+
+        /*string nickname = cognitoHostedUIController.GetUserNickname();
+        string email = cognitoHostedUIController.GetUserEmail();
+        string phone = cognitoHostedUIController.GetUserPhone();*/
 
         bool isNicknameEmpty = string.IsNullOrEmpty(nickname) || nickname == "-";
         bool isEmailEmpty = string.IsNullOrEmpty(email) || email == "-";

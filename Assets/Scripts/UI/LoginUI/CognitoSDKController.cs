@@ -40,12 +40,10 @@ public class CognitoSDKController : MonoBehaviour
         OnDeleteButtonPressed.Unregister(HandleDeleteButtonPressed);
     }
 
-    [SerializeField] private String userNickname;
-    public string GetUserNickname() => userNickname;
-    [SerializeField] private String userEmail;
-    public string GetUserEmail() => userEmail;
-    [SerializeField] private String userPhone;
-    public string GetUserPhone() => userPhone;
+    public String userNickname;
+    public String userEmail;
+    public String userPhone;
+
     [SerializeField] private string refreshToken;
     [SerializeField] private string accessToken;
     [SerializeField] private string idToken;
@@ -271,7 +269,7 @@ public class CognitoSDKController : MonoBehaviour
     #endregion
 
     #region Get user
-    private async Task<bool> GetUserAsync()
+    public async Task<bool> GetUserAsync()
     {
         var getUserRequest = new GetUserRequest
         {
@@ -312,9 +310,9 @@ public class CognitoSDKController : MonoBehaviour
             ClientId = MyUtils.awsClientID,
             AuthFlow = AuthFlowType.REFRESH_TOKEN_AUTH,
             AuthParameters = new Dictionary<string, string>
-        {
-            { "REFRESH_TOKEN", refreshTokenStored }
-        }
+            {
+                { "REFRESH_TOKEN", refreshTokenStored }
+            }
         };
 
         try

@@ -4,7 +4,6 @@ using UnityEngine.UI;
 
 public class MainMenuManager : MonoBehaviour
 {
-    [SerializeField] private UniWebView uniWebView;
 
     [SerializeField] private GameEventSO onScanButtonPressed;
     [SerializeField] private GameEventSO onLoginButtonPressed;
@@ -17,7 +16,7 @@ public class MainMenuManager : MonoBehaviour
 
     [SerializeField] private GameEventSO onBackButtonPressed;
 
-    [SerializeField] private BoolGameEventSO isSignUpSuccess;
+    [SerializeField] private BoolGameEventSO IsSigningSuccess;
 
     [Header("UI Panel")]
     [SerializeField] private GameObject mainMenuPanel;
@@ -41,13 +40,12 @@ public class MainMenuManager : MonoBehaviour
         onProfileButtonPressed.Register(HandleProfileButtonPressed);
 
         onOpenShopButtonPressed.Register(HandleOpenShopButtonPressed);
-        onCloseShopButtonPressed.Register(HandleCloseShopButtonPressed);
 
         onContactUsButtonPressed.Register(HandleContactUsButtonPressed);
 
         onBackButtonPressed.Register(HandlebackButtonPressed);
 
-        //isSignUpSuccess.Register(HandleIsSignUpSuccessful);
+        IsSigningSuccess.Register(HandleOnSignUpOrSignInSuccess);
 
         OnSignUpSuccess.Register(HandleOnSignUpOrSignInSuccess);
         OnSignInSuccess.Register(HandleOnSignUpOrSignInSuccess);
@@ -59,13 +57,12 @@ public class MainMenuManager : MonoBehaviour
         onProfileButtonPressed.Unregister(HandleProfileButtonPressed);
 
         onOpenShopButtonPressed.Unregister(HandleOpenShopButtonPressed);
-        onCloseShopButtonPressed.Unregister(HandleCloseShopButtonPressed);
 
         onContactUsButtonPressed.Unregister(HandleContactUsButtonPressed);
 
         onBackButtonPressed.Unregister(HandlebackButtonPressed);
 
-        //isSignUpSuccess.Unregister(HandleIsSignUpSuccessful);
+        IsSigningSuccess.Unregister(HandleOnSignUpOrSignInSuccess);
 
         OnSignUpSuccess.Unregister(HandleOnSignUpOrSignInSuccess);
         OnSignInSuccess.Unregister(HandleOnSignUpOrSignInSuccess);
@@ -93,7 +90,6 @@ public class MainMenuManager : MonoBehaviour
     private void InitiateButton()
     {
         bool alreadyLoggedIn = SaveManager.IsUserLoggedIn();
-        Debug.Log("asdasdasda"+alreadyLoggedIn);
 
         if (alreadyLoggedIn)
         {
@@ -117,17 +113,16 @@ public class MainMenuManager : MonoBehaviour
         mainMenuPanel.SetActive(false);
         profilePanel.SetActive(true);
     }
-    /*private void HandleIsSignUpSuccessful(bool isSuccess)
+    private void HandleIsSignUpSuccessful(bool isSuccess)
     {
         if (isSuccess)
         {
             mainMenuPanel.SetActive(true);
             loginPanel.SetActive(false);
 
-            
         }
-    }*/
-    
+    }
+
     private void HandleContactUsButtonPressed()
     {
         // Hapus '+' jika ada dan encode pesan
@@ -152,14 +147,9 @@ public class MainMenuManager : MonoBehaviour
     private void HandleScanButtonPressed() {
         SceneManager.LoadScene("ARSimulator");
     }
-    private void HandleCloseShopButtonPressed()
-    {
-        shopPanel.SetActive(false);
-        uniWebView.Hide();
-    }
     private void HandleOpenShopButtonPressed()
     {
-        shopPanel.SetActive(true);
-        uniWebView.Show();
+        string url = "https://amrullahstudio.com";
+        Application.OpenURL($"{url}");
     }
 }

@@ -40,6 +40,7 @@ public class LoginForm : MonoBehaviour
     [SerializeField] private GameEventSO OnCloseCodeCountryButtonPressed;
     [SerializeField] private BoolGameEventSO OnSignUpSuccess;
     [SerializeField] private BoolGameEventSO OnSignInSuccess;
+    [SerializeField] private BoolGameEventSO IsSigningSuccess;
 
     [SerializeField] private string fullPhoneNumber = "";
     private string currentCountryCode = "+62"; // default
@@ -62,6 +63,7 @@ public class LoginForm : MonoBehaviour
         OnContinueButtonPressed.Register(HandleOnContinueButtonPressed);
         OnSignUpSuccess.Register(HandleCloseLoadingPanel);
         OnSignInSuccess.Register(HandleCloseLoadingPanel);
+        IsSigningSuccess.Register(HandleOnSigningSuccess);
 
         phoneNumberInput.onValueChanged.AddListener(HandleOnPhoneChanged);
         isAgree.onValueChanged.AddListener(HandleOnAgreeChanged);
@@ -76,6 +78,7 @@ public class LoginForm : MonoBehaviour
         OnContinueButtonPressed.Unregister(HandleOnContinueButtonPressed);
         OnSignUpSuccess.Unregister(HandleCloseLoadingPanel);
         OnSignInSuccess.Unregister(HandleCloseLoadingPanel);
+        IsSigningSuccess.Unregister(HandleOnSigningSuccess);
 
         phoneNumberInput.onValueChanged.RemoveListener(HandleOnPhoneChanged);
         isAgree.onValueChanged.RemoveListener(HandleOnAgreeChanged);
@@ -83,6 +86,9 @@ public class LoginForm : MonoBehaviour
     private void Start()
     {
         GenerateCodeCountry();
+    }
+    private void HandleOnSigningSuccess(bool value) {
+        loadingPanel.SetActive(false);
     }
     private void HandleCloseLoadingPanel(bool value) {
         loadingPanel.SetActive(false);
