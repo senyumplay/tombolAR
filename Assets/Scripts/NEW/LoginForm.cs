@@ -10,6 +10,8 @@ public class LoginForm : MonoBehaviour
 
     [Header("Form 1 UI")]
     [SerializeField] private GameObject form1Panel;
+    [SerializeField] private TMP_InputField emailInput;
+    [SerializeField] private TMP_InputField nicknameInput;
     [SerializeField] private Button selectCodeCountryButton;
     [SerializeField] private TMP_Text selectedCodeCountryText;
     [SerializeField] private TMP_InputField phoneNumberInput;
@@ -48,6 +50,9 @@ public class LoginForm : MonoBehaviour
 
     public string GetPhoneNumber() => fullPhoneNumber;
     public string GetPassword() => passwordInput.text;
+    public string GetEmail() => emailInput.text;
+    public string GetNickname() => nicknameInput.text;
+
 
     [ContextMenu("Log out")]
     public void DeletePlayerprefSessionLogin() {

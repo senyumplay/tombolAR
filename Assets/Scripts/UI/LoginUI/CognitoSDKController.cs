@@ -174,25 +174,25 @@ public class CognitoSDKController : MonoBehaviour
         };
         var userNickname = new AttributeType
         {
-            Name = "custom:nickname",
-            Value = "-"
+            Name = "nickname",
+            Value = loginForm.GetNickname()
         };
         var userEmail = new AttributeType
         {
             Name = "email",
-            Value = ""
+            Value = loginForm?.GetEmail()
         };
         var userAttrsList = new List<AttributeType>();
 
         userAttrsList.Add(userPhoneNumber);
-        userAttrsList.Add(userNickname);
         userAttrsList.Add(userEmail);
+        userAttrsList.Add(userNickname);
 
         var signUpRequest = new SignUpRequest
         {
             UserAttributes = userAttrsList,
             ClientId = MyUtils.awsClientID,
-            Username = loginForm.GetPhoneNumber(),
+            Username = loginForm.GetEmail(),
             Password = loginForm.GetPassword(),
             
         };
